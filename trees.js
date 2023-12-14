@@ -37,6 +37,7 @@ class BST {
         }
     }
 
+// Check if a value is contained within the tree
     contains(value){
         if(this.root == null) {
             return false;
@@ -58,21 +59,61 @@ class BST {
         }
     }
 
+// Returns that smallest value within the BST
     min(){
-
+        var pointer = this.root
+        var min = pointer.value
+        while(pointer.left){
+            if(min > pointer.left.value){
+                min = pointer.left.value
+                pointer = pointer.left
+            }
+        }
+        return min;
     }
 
+// Returns the largest value within the BST
     max(){
-
+        var pointer = this.root
+        var max = pointer.value
+        while(pointer.right){
+            if(max < pointer.right.value){
+                max = pointer.right.value
+                pointer = pointer.right
+            }
+        }
+        return max;
     }
+
+// Returns the number of nodes(values) contained within a tree 
+    // size(){
+    //     var pointer = this.root;
+    //     var size = 0;
+    //     if(this.root == null){
+    //         return 0;
+    //     } 
+    // }
+
+// Returns true if the BST is empty or false if it is not
+    isEmpty(){
+        if(this.root == null) {
+            return true;
+        } return false;
+    }   
 }
 
 var tree_1 = new BST();
+var tree_2 = new BST();
 // console.log(tree_1)
 // BST { root: null }
 
-tree_1.add(9).add(10).add(2).add(7).add(11)
+tree_1.add(9).add(10).add(2).add(7).add(11).add(1)
 // console.log(tree_1)
-// BST { root: Node { data: 9, left: null, right: null } }
 
-// console.log(tree_1.contains(8))
+// console.log(tree_1.contains(-7))
+// console.log(tree_1.min())
+// console.log(tree_1.max())
+// console.log(tree_1.size())
+// console.log(tree_2.size())
+// console.log(tree_1.isEmpty())
+// console.log(tree_2.isEmpty())
