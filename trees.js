@@ -47,17 +47,10 @@ class BST {
                     return true;
                 } else {
                     if(value > pointer.value){
-                        if(pointer.right != value){
-                            pointer = pointer.right
-                        }
-                    } else {
-                        return true;
-                    } if(value < pointer.value){
-                        if(pointer.left != value){
-                            pointer = pointer.left
-                        }
-                    } else {
-                        return true;
+                        pointer = pointer.right
+                    }
+                    else {
+                        pointer = pointer.left
                     }
                 }
             }
@@ -82,4 +75,4 @@ tree_1.add(9).add(10).add(2).add(7).add(11)
 // console.log(tree_1)
 // BST { root: Node { data: 9, left: null, right: null } }
 
-console.log(tree_1.contains(3))
+// console.log(tree_1.contains(8))
